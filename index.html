@@ -3,75 +3,271 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="InsightFlow dashboard — analytics, reports, and real-time metrics."
+    />
+    <title>InsightFlow | Dashboard</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js" defer></script>
-    <title>Document</title>
   </head>
   <body>
     <div class="container">
-      <aside class="sidebar">
-        <div class="logo"><b>InsightFlow</b></div>
-        <div class="sideBtns">
-          <p>MAIN</p>
-          <button class="dashboardBtn activeBtn">Dashboard</button>
-          <button class="analyticsBtn">Analytics</button>
-          <button class="reportsBtn">Reports</button>
-          <p>SETTINGS</p>
-          <button class="settingsBtn">Settings</button>
-        </div>
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">InsightFlow</div>
+        <nav class="sideBtns" aria-label="Main">
+          <p class="sideLabel">Main</p>
+          <button class="dashboardBtn activeBtn" type="button">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            <span>Dashboard</span>
+          </button>
+          <button class="analyticsBtn" type="button">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 3v18h18" />
+              <path d="M7 14v4" />
+              <path d="M12 10v8" />
+              <path d="M17 6v12" />
+            </svg>
+            <span>Analytics</span>
+          </button>
+          <button class="reportsBtn" type="button">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <path d="M14 2v6h6" />
+              <path d="M8 13h8" />
+              <path d="M8 17h5" />
+            </svg>
+            <span>Reports</span>
+          </button>
+          <p class="sideLabel">Settings</p>
+          <button class="settingsBtn" type="button">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+              />
+            </svg>
+            <span>Settings</span>
+          </button>
+        </nav>
       </aside>
+
+      <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
       <main class="mainSection">
         <nav class="navbar">
-          <div class="pageTitle">InsightFolw | Dashboard</div>
-          <div class="searchField">
-            <input type="text" placeholder="Search something here..." />
-            <button class="searchBtn">search</button>
+          <div class="navbarLeft">
+            <button
+              class="hamburgerMenu"
+              id="menuToggle"
+              type="button"
+              aria-label="Toggle navigation"
+              aria-controls="sidebar"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </button>
+            <div class="pageTitle" id="pageTitle">Dashboard</div>
           </div>
-          <div class="notification">bell</div>
-          <div class="profile">profile</div>
-          <div
-            class="hamburgerMenu"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-          >
-            ☰
+
+          <div class="searchField" role="search">
+            <svg
+              class="searchIcon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search transactions…"
+              aria-label="Search transactions"
+            />
+          </div>
+
+          <div class="navbarActions">
+            <button class="iconBtn" type="button" aria-label="Notifications">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+              </svg>
+              <span class="badge" aria-hidden="true"></span>
+            </button>
+            <button
+              class="iconBtn profile"
+              type="button"
+              aria-label="Account menu"
+            >
+              <span class="avatar" aria-hidden="true">AS</span>
+            </button>
           </div>
         </nav>
 
         <div class="statisticsCards">
           <div class="card">
+            <div class="icon icon--indigo">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
             <p class="value">R124,500</p>
             <p class="text">Total Revenue</p>
           </div>
           <div class="card">
+            <div class="icon icon--blue">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
             <p class="value">2,840</p>
             <p class="text">Active Users</p>
           </div>
           <div class="card">
-            <div class="icons"></div>
+            <div class="icon icon--green">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </div>
             <p class="value">4.85%</p>
             <p class="text">Conversion Rate</p>
           </div>
           <div class="card">
+            <div class="icon icon--amber">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                />
+              </svg>
+            </div>
             <p class="value">1,249</p>
             <p class="text">Total Sales</p>
           </div>
         </div>
+
         <div class="analyticsSection">
           <div class="analyticsCard">
             <h3>Analytics</h3>
-
-            <canvas id="myChart"></canvas>
+            <div class="chartWrap">
+              <canvas id="myChart"></canvas>
+            </div>
           </div>
           <div class="recentActivity">
             <h3>Recent Activity</h3>
             <table>
+              <caption class="sr-only">
+                Recent transactions
+              </caption>
               <thead>
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">Date</th>
-                  <th scope="col">Amount</th>
+                  <th scope="col" class="amount">Amount</th>
                   <th scope="col">Status</th>
                 </tr>
               </thead>
@@ -79,26 +275,26 @@
                 <tr>
                   <td>Alice Smith</td>
                   <td>09/27/26</td>
-                  <td>R500</td>
-                  <td>Paid</td>
+                  <td class="amount">R500</td>
+                  <td><span class="badge badge--paid">Paid</span></td>
                 </tr>
                 <tr>
                   <td>John Doe</td>
                   <td>08/21/26</td>
-                  <td>R750</td>
-                  <td>Paid</td>
+                  <td class="amount">R750</td>
+                  <td><span class="badge badge--paid">Paid</span></td>
                 </tr>
                 <tr>
                   <td>Joe Dirt</td>
                   <td>01/01/26</td>
-                  <td>R0</td>
-                  <td>Unpaid</td>
+                  <td class="amount">R0</td>
+                  <td><span class="badge badge--unpaid">Unpaid</span></td>
                 </tr>
                 <tr>
                   <td>Ken Dill</td>
                   <td>01/05/26</td>
-                  <td>R500</td>
-                  <td>Paid</td>
+                  <td class="amount">R500</td>
+                  <td><span class="badge badge--paid">Paid</span></td>
                 </tr>
               </tbody>
             </table>
@@ -106,31 +302,5 @@
         </div>
       </main>
     </div>
-    <script>
-      const ctx = document.getElementById("myChart").getContext("2d");
-
-      new Chart(ctx, {
-        type: "line", // 'line', 'pie', 'doughnut', 'radar'...
-        data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-          datasets: [
-            {
-              label: "Sales",
-              data: [60, 85, 40, 72, 95, 68],
-              backgroundColor: "steelblue",
-              borderColor: "steelblue",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          responsive: true, // resize with container
-          maintainAspectRatio: true,
-          scales: {
-            y: { beginAtZero: true },
-          },
-        },
-      });
-    </script>
   </body>
 </html>

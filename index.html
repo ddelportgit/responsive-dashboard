@@ -23,14 +23,20 @@
       </aside>
       <main class="mainSection">
         <nav class="navbar">
-          <div class="pageTitle">Dashboard</div>
+          <div class="pageTitle">InsightFolw | Dashboard</div>
           <div class="searchField">
-            <input type="text" />
+            <input type="text" placeholder="Search something here..." />
             <button class="searchBtn">search</button>
           </div>
           <div class="notification">bell</div>
           <div class="profile">profile</div>
-          <div class="hamburgerMenu">-</div>
+          <div
+            class="hamburgerMenu"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </div>
         </nav>
 
         <div class="statisticsCards">
@@ -62,10 +68,12 @@
             <h3>Recent Activity</h3>
             <table>
               <thead>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Status</th>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Status</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>

@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f7f7f7;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  height: 100vh;
+}
+
+.sidebar {
+  max-width: 350px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.sideBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.sideBtns button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.sideBtns p {
+  font-size: 0.75rem;
+}
+
+.mainSection {
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 3rem;
+  background: #ffffff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.statisticsCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  /* border: 1px solid #000; */
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.card .value {
+  font-size: 1.5rem;
+}
+
+.card .text {
+  font-size: 0.8rem;
+}
+
+.analyticsSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  height: 70vh;
+}
+
+.analyticsSection .analyticsCard {
+  /* border: 1px solid #000; */
+  border-radius: 12px;
+  height: 100%;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.analyticsSection .recentActivity {
+  /* border: 1px solid #000; */
+  border-radius: 12px;
+  height: 100%;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead th {
+  background-color: #4c7aaf;
+  color: white;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #b8b8b846;
+}
+
+h3 {
+  margin-bottom: 2rem;
+}
+
+.activeBtn {
+  background-color: #422da1;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .statisticsCards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .analyticsSection {
+    grid-template-columns: 1fr;
+  }
+}

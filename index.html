@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo"><b>InsightFlow</b></div>
+        <div class="sideBtns">
+          <p>MAIN</p>
+          <button class="dashboardBtn activeBtn">Dashboard</button>
+          <button class="analyticsBtn">Analytics</button>
+          <button class="reportsBtn">Reports</button>
+          <p>SETTINGS</p>
+          <button class="settingsBtn">Settings</button>
+        </div>
+      </aside>
+      <main class="mainSection">
+        <nav class="navbar">
+          <div class="pageTitle">Dashboard</div>
+          <div class="searchField">
+            <input type="text" />
+            <button class="searchBtn">search</button>
+          </div>
+          <div class="notification">bell</div>
+          <div class="profile">profile</div>
+          <div class="hamburgerMenu">-</div>
+        </nav>
+
+        <div class="statisticsCards">
+          <div class="card">
+            <p class="value">R124,500</p>
+            <p class="text">Total Revenue</p>
+          </div>
+          <div class="card">
+            <p class="value">2,840</p>
+            <p class="text">Active Users</p>
+          </div>
+          <div class="card">
+            <div class="icons"></div>
+            <p class="value">4.85%</p>
+            <p class="text">Conversion Rate</p>
+          </div>
+          <div class="card">
+            <p class="value">1,249</p>
+            <p class="text">Total Sales</p>
+          </div>
+        </div>
+        <div class="analyticsSection">
+          <div class="analyticsCard">
+            <h3>Analytics</h3>
+
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="recentActivity">
+            <h3>Recent Activity</h3>
+            <table>
+              <thead>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alice Smith</td>
+                  <td>09/27/26</td>
+                  <td>R500</td>
+                  <td>Paid</td>
+                </tr>
+                <tr>
+                  <td>John Doe</td>
+                  <td>08/21/26</td>
+                  <td>R750</td>
+                  <td>Paid</td>
+                </tr>
+                <tr>
+                  <td>Joe Dirt</td>
+                  <td>01/01/26</td>
+                  <td>R0</td>
+                  <td>Unpaid</td>
+                </tr>
+                <tr>
+                  <td>Ken Dill</td>
+                  <td>01/05/26</td>
+                  <td>R500</td>
+                  <td>Paid</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+
+      new Chart(ctx, {
+        type: "line", // 'line', 'pie', 'doughnut', 'radar'...
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales",
+              data: [60, 85, 40, 72, 95, 68],
+              backgroundColor: "steelblue",
+              borderColor: "steelblue",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true, // resize with container
+          maintainAspectRatio: true,
+          scales: {
+            y: { beginAtZero: true },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
